@@ -60,12 +60,45 @@ Step 7: Save Your Work
 
 
 # Code:
+```
+const int pirPin = 2;    // PIR sensor output
+const int ledPin = 13;   // LED connected to D13
 
+void setup() {
+  pinMode(pirPin, INPUT);
+  pinMode(ledPin, OUTPUT);
+
+  Serial.begin(9600);
+  Serial.println("PIR Motion Detection");
+
+  delay(30000);   // Allow PIR sensor to stabilize
+}
+
+void loop() {
+
+  if (digitalRead(pirPin) == HIGH) {
+
+    Serial.println("Motion Detected");
+
+    // Blink continuously while motion is detected
+    while (digitalRead(pirPin) == HIGH) {
+      digitalWrite(ledPin, HIGH);
+      delay(300);
+      digitalWrite(ledPin, LOW);
+      delay(300);
+    }
+
+    Serial.println("Motion Ended");
+  }
+
+  digitalWrite(ledPin, LOW);
+}
+```
 
 
 # Output:
 
-
+<img width="1280" height="1187" alt="image" src="https://github.com/user-attachments/assets/b488d0fc-d7e3-4c7d-8eec-c4715a50476a" />
 
 
 # Result:
