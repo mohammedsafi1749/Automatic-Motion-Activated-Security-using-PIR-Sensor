@@ -60,7 +60,7 @@ Step 7: Save Your Work
 
 
 # Code:
-```c
+```c++
 const int pirPin = 2;    // PIR sensor output
 const int ledPin = 13;   // LED connected to D13
 
